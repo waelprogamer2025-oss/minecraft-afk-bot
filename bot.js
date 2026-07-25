@@ -1,3 +1,10 @@
+const http = require("http");
+
+http.createServer((req, res) => {
+  res.write("Bot is running");
+  res.end();
+}).listen(process.env.PORT || 3000);
+
 const mineflayer = require('mineflayer');
 
 function createBot() {
@@ -29,6 +36,10 @@ function createBot() {
   bot.on('end', () => {
     console.log('Disconnected. Reconnecting in 10 seconds...');
     setTimeout(createBot, 10000);
+  });
+
+  bot.on('kicked', (reason) => {
+    console.log('Kicked:', reason);
   });
 }
 
