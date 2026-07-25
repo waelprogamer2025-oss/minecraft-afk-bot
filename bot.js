@@ -21,4 +21,10 @@ bot.on('spawn', () => {
 });
 
 bot.on('error', console.log);
-bot.on('end', () => console.log('Disconnected'));
+
+bot.on('end', () => {
+  console.log('Disconnected. Reconnecting...');
+  setTimeout(() => {
+    require('./bot');
+  }, 10000);
+});
