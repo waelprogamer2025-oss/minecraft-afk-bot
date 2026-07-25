@@ -1,8 +1,10 @@
 const mineflayer=require('mineflayer');
 const bot=mineflayer.createBot({
- host:'zxzc.aternos.me',
- port:61260,
- username:'Bot123'
+const bot = mineflayer.createBot({
+  host: 'zxzc.aternos.me',
+  port: 61260,
+  username: 'Bot123',
+  version: '1.21.8'
 });
 bot.on('spawn',()=>{
  console.log('Bot joined');
